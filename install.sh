@@ -13,6 +13,7 @@ sudo apt-get install -y libpcap-dev
 ########################
 ## Configure and make ##
 ########################
+rm bin
 mkdir build
 cd build
 cmake -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python2.7 -DPYTHON_LIBRARY:FILEPATH=/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so -DPYTHON_INCLUDE_DIR:FILEPATH=/usr/include/python2.7/ -DENABLE_veloview=ON -DUSE_SYSTEM_boost=ON -DUSE_SYSTEM_python=ON -DUSE_SYSTEM_qt=ON ../Superbuild
@@ -25,3 +26,6 @@ cd install/lib
 sudo cp *.* /usr/lib
 cd ..
 sudo ldconfig -v
+cd ../../
+
+sudo ln -s build/veloview/src/veloview-build/bin bin
